@@ -1,0 +1,19 @@
+def solution(n, m):
+    answer = []
+    if n == m :
+        return [n, m]
+    elif n < m :
+        min, max = n, m
+    else :
+        min, max = m, n
+    
+    for i in range(min, 0, -1) :
+        if min % i == 0 and max % i == 0 :
+            answer.append(i)
+            answer.append(i * (min // i) * (max // i))
+            break
+    
+    return answer
+
+print(solution(3, 12))
+print(solution(2, 5))
